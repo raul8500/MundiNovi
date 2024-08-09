@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation</title>
+    <link rel="stylesheet" href="styleMenu.css">
+    <link rel="stylesheet" href="loginCSS.css">
+    <!-- IMPORT BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body onload="mueveReloj()">
+
+    <aside class="close">
+        <div class="head">
+            <div class="logo">
+                <h2 class="logo-title">Mundi<span>Novi</span></h2>
+            </div>
+            <img class='bx bx-menu hamburger-menu' style="width: 50px; height: 40px;" src="images/imagen_color.png" alt="logo">
+        </div>
+
+        <div class="nav">
+            <div class="menu active">
+                <i class="bx bx-menu-alt-right"></i>
+                <span>Pagina Principal</span>
+            </div>
+            <div class="menu">
+                <i class="bx bx-cog"></i>
+                <span>Punto de venta</span>
+            </div>
+
+            <div class="menu">
+                <i class="bx bx-task"></i>
+                <span>Opciones</span>
+                <i class="bx bx-chevron-down"></i>
+            </div>
+            <div class="menu-dropdown">
+                <div class="sub-menu">
+                    <span class="menu">Actividades</span>
+                    <span class="menu">Arqueo</span>
+                    <span class="menu">Asistencias</span>
+                    <span class="menu">Capacitacion</span>
+                    <span class="menu">Codigos de barras</span>
+                    <span class="menu">Recepcion Faltantes</span>
+                </div>
+            </div>
+
+            <div class="menu">
+                <i class="bx bx-group"></i>
+                <span>Economico</span>
+                <i class="bx bx-chevron-down"></i>
+            </div>
+            <div class="menu-dropdown">
+                <div class="sub-menu">
+                    <span class="menu">Corte parcial</span>
+                    <span class="menu">Corte de venta</span>
+                    <span class="menu">Cotizacion</span>
+                    <span class="menu">Egresos</span>
+                    <span class="menu">Pedidos</span>
+                </div>
+            </div>
+
+            <div class="menu">
+                <i class="bx bx-cog"></i>
+                <span>Settings</span>
+            </div>
+
+            <div class="menu" style="pointer-events: none;"></div>
+        </div>
+
+        <div class="foot">
+            <div class="profile">
+                <img src="images/profile.jpg" alt="profile">
+                <div class="info">
+                    <span class="name">Raul Peredo</span>
+                    <span class="job">Cajero</span>
+                </div>
+            </div>
+
+            <div class="menu menu-logout">
+                <i class="bx bx-log-out"></i>
+                <span>Salir</span>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <div class="container">
+            <div class="centrar">
+                <div>
+                    <img style="height: 70%; width: 70%;" src="images/imagen_color.png" alt="Logo">
+                </div>
+    
+    
+                <form name="form_fecha">
+                    <input class="textFecha" type="text" name="fecha" size="25" onfocus="window.document.form_fecha.fecha.blur()">
+                </form>
+    
+                <form name="form_reloj" style="margin-top: -20px; margin-bottom: 10%;">
+                    <input class="textReloj" type="text" name="reloj" size="10" onfocus="window.document.form_reloj.reloj.blur()">
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- IMPORT CDNJS JQUERY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $('.hamburger-menu').click(function() {
+            $('aside').toggleClass('close')
+        })
+
+        $('.menu').click(function() {
+            $(this).siblings('.menu').removeClass('active')
+            $(this).addClass('active')
+
+            $(this).next().siblings('.menu-dropdown').children('.sub-menu').slideUp()
+            $(this).next('.menu-dropdown').children('.sub-menu').slideToggle()
+
+            $(this).next().siblings('.menu-dropdown').children('.sub-menu').children('.menu').removeClass('active')
+        })
+    </script>
+    <script src="relojMain.js"></script>
+
+</body>
+</html>
